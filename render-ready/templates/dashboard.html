@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Oral Cancer Prediction System{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 100%; padding: 0;">
+    <h1 class="page-title" style="text-align: center; color: #503D36; font-size: 40px; margin-bottom: 10px; padding: 20px;">
+        Oral Cancer Prediction Dashboard
+    </h1>
+
+    <div style="display: flex; flex-direction: row; background-color: white;">
+        <!-- Sidebar for filters -->
+        <div style="width: 20%; float: left; padding: 15px; background-color: #f9f9f9; height: 100vh; overflow-y: auto;">
+            <h2 style="text-align: center; margin-bottom: 20px;">Filters</h2>
+            
+            <div style="margin-bottom: 15px;">
+                <label for="age-group-filter" style="display: block; margin-bottom: 5px; font-weight: bold;">Age Group:</label>
+                <select id="age-group-filter" multiple size="4" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background-color: white;">
+                    {% for age_group in age_groups %}
+                    <option value="{{ age_group }}">{{ age_group }}</option>
+                    {% endfor %}
+                </select>
+                <small style="color: #666; font-size: 11px;">Hold Ctrl/Cmd to select multiple</small>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="gender-filter" style="display: block; margin-bottom: 5px; font-weight: bold;">Gender:</label>
+                <select id="gender-filter" multiple size="3" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background-color: white;">
+                    {% for gender in genders %}
+                    <option value="{{ gender }}">{{ gender }}</option>
+                    {% endfor %}
+                </select>
+                <small style="color: #666; font-size: 11px;">Hold Ctrl/Cmd to select multiple</small>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="country-filter" style="display: block; margin-bottom: 5px; font-weight: bold;">Country:</label>
+                <select id="country-filter" multiple size="5" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background-color: white;">
+                    {% for country in countries %}
+                    <option value="{{ country }}">{{ country }}</option>
+                    {% endfor %}
+                </select>
+                <small style="color: #666; font-size: 11px;">Hold Ctrl/Cmd to select multiple</small>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="cancer-stage-filter" style="display: block; margin-bottom: 5px; font-weight: bold;">Cancer Stage:</label>
+                <select id="cancer-stage-filter" multiple size="5" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background-color: white;">
+                    {% for stage in stages %}
+                    <option value="{{ stage }}">{{ stage }}</option>
+                    {% endfor %}
+                </select>
+                <small style="color: #666; font-size: 11px;">Hold Ctrl/Cmd to select multiple</small>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="treatment-type-filter" style="display: block; margin-bottom: 5px; font-weight: bold;">Treatment Type:</label>
+                <select id="treatment-type-filter" multiple size="5" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background-color: white;">
+                    {% for treatment in treatments %}
+                    <option value="{{ treatment }}">{{ treatment }}</option>
+                    {% endfor %}
+                </select>
+                <small style="color: #666; font-size: 11px;">Hold Ctrl/Cmd to select multiple</small>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="year-of-diagnosis-slider" style="display: block; margin-bottom: 5px; font-weight: bold;">Year of Diagnosis:</label>
+                <div id="year-range-display" style="margin-bottom: 5px; font-size: 12px; color: #666;">
+                    {{ years[0] }} - {{ years[1] }}
+                </div>
+                <input type="range" id="year-min" min="{{ years[0] }}" max="{{ years[1] }}" value="{{ years[0] }}" 
+                       style="width: 100%; margin-bottom: 5px;" oninput="updateYearRange()">
+                <input type="range" id="year-max" min="{{ years[0] }}" max="{{ years[1] }}" value="{{ years[1] }}" 
+                       style="width: 100%;" oninput="updateYearRange()">
+            </div>
+
+            <button onclick="applyFilters()" style="width: 100%; padding: 10px; background-color: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px;">
+                Apply Filters
+            </button>
+            <button onclick="clearFilters()" style="width: 100%; padding: 10px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px;">
+                Clear Filters
+            </button>
+        </div>
+
+        <!-- Main visualization area -->
+        <div style="width: 78%; float: right; padding: 10px;">
+            {% if error %}
+            <div style="padding: 20px; background-color: #ffebee; color: #c62828; border-radius: 4px; margin: 20px;">
+                <strong>Error loading dashboard:</strong> {{ error }}
+            </div>
+            {% else %}
+            <!-- Row 1: Age Distribution and Gender Distribution -->
+            <div style="display: flex; justify-content: space-between; padding: 10px; gap: 10px;">
+                <div id="age-distribution-plot" style="width: 48%; min-height: 500px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+                <div id="gender-distribution-plot" style="width: 48%; min-height: 500px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+
+            <!-- Row 2: Country Distribution -->
+            <div style="padding: 10px;">
+                <div id="country-distribution-plot" style="width: 100%; min-height: 600px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+
+            <!-- Row 3: Tumor Size vs Stage and Stage-Diagnosis Heatmap -->
+            <div style="display: flex; justify-content: space-between; padding: 10px; gap: 10px;">
+                <div id="tumor-size-stage-box-plot" style="width: 48%; min-height: 500px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+                <div id="stage-diagnosis-heatmap" style="width: 48%; min-height: 500px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+
+            <!-- Row 4: Treatment Stage Bar Chart -->
+            <div style="padding: 10px;">
+                <div id="treatment-stage-bar-chart" style="width: 100%; min-height: 600px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+
+            <!-- Row 5: LOS and Recovery by Treatment -->
+            <div style="display: flex; justify-content: space-between; padding: 10px; gap: 10px;">
+                <div id="los-treatment-box-plot" style="width: 48%; min-height: 500px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+                <div id="recovery-treatment-box-plot" style="width: 48%; min-height: 500px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+
+            <!-- Row 6: Recovery vs Survival Scatter -->
+            <div style="padding: 10px;">
+                <div id="recovery-survival-scatter" style="width: 100%; min-height: 600px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+
+            <!-- Row 7: Cost vs Economic Burden Scatter -->
+            <div style="padding: 10px;">
+                <div id="cost-economic-scatter" style="width: 100%; min-height: 600px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+
+            <!-- Row 8: Cost and Economic Burden by Stage -->
+            <div style="display: flex; justify-content: space-between; padding: 10px; gap: 10px;">
+                <div id="cost-stage-box-plot" style="width: 48%; min-height: 500px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+                <div id="economic-stage-box-plot" style="width: 48%; min-height: 500px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+// Chart data from server
+const charts = {{ charts|tojson|safe }};
+
+// Render all charts
+function renderCharts(chartData) {
+    const chartIds = [
+        'age-distribution-plot',
+        'gender-distribution-plot',
+        'country-distribution-plot',
+        'tumor-size-stage-box-plot',
+        'stage-diagnosis-heatmap',
+        'treatment-stage-bar-chart',
+        'los-treatment-box-plot',
+        'recovery-treatment-box-plot',
+        'recovery-survival-scatter',
+        'cost-economic-scatter',
+        'cost-stage-box-plot',
+        'economic-stage-box-plot'
+    ];
+    
+    const chartKeys = [
+        'age_distribution',
+        'gender_distribution',
+        'country_distribution',
+        'tumor_size_stage',
+        'stage_diagnosis_heatmap',
+        'treatment_stage',
+        'los_treatment',
+        'recovery_treatment',
+        'recovery_survival',
+        'cost_economic',
+        'cost_stage',
+        'economic_stage'
+    ];
+    
+    chartIds.forEach((id, index) => {
+        const element = document.getElementById(id);
+        if (!element) {
+            console.warn(`Chart container ${id} not found`);
+            return;
+        }
+        
+        const chartKey = chartKeys[index];
+        if (!chartData || !chartData[chartKey]) {
+            console.warn(`Chart data for ${chartKey} not found`);
+            element.innerHTML = '<p style="padding: 2rem; text-align: center; color: #666;">Chart data not available</p>';
+            return;
+        }
+        
+        try {
+            const parsed = JSON.parse(chartData[chartKey]);
+            
+            // Ensure layout has proper sizing
+            if (!parsed.layout) parsed.layout = {};
+            parsed.layout.autosize = true;
+            parsed.layout.height = element.offsetHeight || 500;
+            parsed.layout.width = element.offsetWidth || null;
+            parsed.layout.margin = parsed.layout.margin || {l: 60, r: 60, t: 60, b: 60};
+            
+            // Ensure data exists
+            if (!parsed.data || parsed.data.length === 0) {
+                element.innerHTML = '<p style="padding: 2rem; text-align: center; color: #666;">No data available for this chart</p>';
+                return;
+            }
+            
+            Plotly.newPlot(id, parsed.data, parsed.layout, {
+                responsive: true,
+                displayModeBar: true,
+                displaylogo: false,
+                modeBarButtonsToRemove: ['pan2d', 'lasso2d']
+            });
+            
+        } catch (e) {
+            console.error(`Error rendering chart ${id}:`, e);
+            element.innerHTML = `<p style="padding: 2rem; text-align: center; color: #f44336;">Error loading chart: ${e.message}</p>`;
+        }
+    });
+}
+
+// Update year range display
+function updateYearRange() {
+    const minYear = document.getElementById('year-min').value;
+    const maxYear = document.getElementById('year-max').value;
+    document.getElementById('year-range-display').textContent = minYear + ' - ' + maxYear;
+}
+
+// Apply filters
+function applyFilters() {
+    const filters = {
+        age_groups: Array.from(document.getElementById('age-group-filter').selectedOptions).map(opt => opt.value),
+        genders: Array.from(document.getElementById('gender-filter').selectedOptions).map(opt => opt.value),
+        countries: Array.from(document.getElementById('country-filter').selectedOptions).map(opt => opt.value),
+        stages: Array.from(document.getElementById('cancer-stage-filter').selectedOptions).map(opt => parseInt(opt.value)),
+        treatments: Array.from(document.getElementById('treatment-type-filter').selectedOptions).map(opt => opt.value),
+        years: [parseInt(document.getElementById('year-min').value), parseInt(document.getElementById('year-max').value)]
+    };
+    
+    fetch('/api/dashboard/filter', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(filters)
+    })
+    .then(response => response.json())
+    .then(data => {
+        renderCharts(data);
+    })
+    .catch(error => {
+        console.error('Error applying filters:', error);
+    });
+}
+
+// Clear filters
+function clearFilters() {
+    document.getElementById('age-group-filter').selectedIndex = -1;
+    document.getElementById('gender-filter').selectedIndex = -1;
+    document.getElementById('country-filter').selectedIndex = -1;
+    document.getElementById('cancer-stage-filter').selectedIndex = -1;
+    document.getElementById('treatment-type-filter').selectedIndex = -1;
+    document.getElementById('year-min').value = {{ years[0] }};
+    document.getElementById('year-max').value = {{ years[1] }};
+    updateYearRange();
+    applyFilters();
+}
+
+// Initial render
+document.addEventListener('DOMContentLoaded', function() {
+    // Show loading indicator
+    const loadingIndicator = document.createElement('div');
+    loadingIndicator.id = 'loading-indicator';
+    loadingIndicator.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.95); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 9999;';
+    loadingIndicator.innerHTML = '<p style="text-align: center; color: #667eea; font-size: 1.2rem;">Loading charts...</p>';
+    document.body.appendChild(loadingIndicator);
+    
+    // Small delay to ensure containers are rendered
+    setTimeout(function() {
+        try {
+            renderCharts(charts);
+            // Remove loading indicator
+            if (loadingIndicator.parentNode) {
+                loadingIndicator.parentNode.removeChild(loadingIndicator);
+            }
+        } catch (e) {
+            console.error('Error rendering charts:', e);
+            if (loadingIndicator.parentNode) {
+                loadingIndicator.innerHTML = '<p style="text-align: center; color: #f44336;">Error loading charts. Please refresh the page.</p>';
+            }
+        }
+    }, 200);
+    
+    // Handle window resize for all Plotly charts
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            chartIds.forEach(function(id) {
+                const element = document.getElementById(id);
+                if (element && element.data) {
+                    try {
+                        Plotly.Plots.resize(id);
+                    } catch (e) {
+                        // Ignore resize errors
+                    }
+                }
+            });
+        }, 250);
+    });
+});
+</script>
+{% endblock %}

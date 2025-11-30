@@ -1,0 +1,437 @@
+{% extends "base.html" %}
+
+{% block title %}Visualizations - Oral Cancer Prediction System{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="page-title">Data Visualizations</h1>
+    <p class="page-subtitle">Exploratory Data Analysis and Insights</p>
+
+    <div class="dashboard-container">
+        <h2>Dataset Overview</h2>
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <h3 id="totalPatients">-</h3>
+                <p>Total Patients</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="cancerCases">-</h3>
+                <p>Cancer Cases</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="noCancerCases">-</h3>
+                <p>No Cancer Cases</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancer Diagnosis Distribution -->
+    <div class="dashboard-container">
+        <h2>Cancer Diagnosis Distribution</h2>
+        <div class="chart-container">
+            <canvas id="diagnosisChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Age Group vs Cancer Diagnosis -->
+    <div class="dashboard-container">
+        <h2>Age Group vs Cancer Diagnosis</h2>
+        <div class="chart-container">
+            <canvas id="ageGroupChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Cancer Stage Distribution -->
+    <div class="dashboard-container">
+        <h2>Cancer Stage Distribution</h2>
+        <div class="chart-container">
+            <canvas id="cancerStageChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Treatment Type Distribution -->
+    <div class="dashboard-container">
+        <h2>Treatment Type Distribution</h2>
+        <div class="chart-container">
+            <canvas id="treatmentChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Treatment by Cancer Stage -->
+    <div class="dashboard-container">
+        <h2>Treatment Type by Cancer Stage</h2>
+        <div class="chart-container">
+            <canvas id="treatmentStageChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Cancer Diagnosis Over Years -->
+    <div class="dashboard-container">
+        <h2>Cancer Diagnosis Over Years</h2>
+        <div class="chart-container">
+            <canvas id="yearlyDiagnosisChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Country Distribution -->
+    <div class="dashboard-container">
+        <h2>Cancer Cases by Country</h2>
+        <div class="chart-container">
+            <canvas id="countryChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Tumor Size by Cancer Stage -->
+    <div class="dashboard-container">
+        <h2>Tumor Size Distribution by Cancer Stage</h2>
+        <div class="chart-container">
+            <canvas id="tumorSizeChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Cost vs Economic Burden -->
+    <div class="dashboard-container">
+        <h2>Cost of Treatment vs Economic Burden</h2>
+        <div class="chart-container">
+            <canvas id="costBurdenChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+// Load chart data from API
+async function loadChartData() {
+    try {
+        const response = await fetch('/api/visualizations/data');
+        const data = await response.json();
+        
+        // Update stats
+        document.getElementById('totalPatients').textContent = data.stats.total_patients.toLocaleString();
+        document.getElementById('cancerCases').textContent = data.stats.cancer_cases.toLocaleString();
+        document.getElementById('noCancerCases').textContent = data.stats.no_cancer_cases.toLocaleString();
+
+        // Cancer Diagnosis Chart
+        const diagnosisCtx = document.getElementById('diagnosisChart').getContext('2d');
+        const diagnosisChart = new Chart(diagnosisCtx, {
+            type: 'bar',
+            data: {
+                labels: data.diagnosis.labels,
+                datasets: [{
+                    label: 'Count',
+                    data: data.diagnosis.values,
+                    backgroundColor: ['#667eea', '#764ba2'],
+                    borderColor: ['#5568d3', '#6a3d91'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // Age Group vs Cancer Diagnosis
+        const ageGroupCtx = document.getElementById('ageGroupChart').getContext('2d');
+        const ageGroupChart = new Chart(ageGroupCtx, {
+            type: 'bar',
+            data: {
+                labels: data.age_group.labels,
+                datasets: [
+                    {
+                        label: 'No Cancer',
+                        data: data.age_group.no_cancer,
+                        backgroundColor: '#667eea',
+                        borderColor: '#5568d3',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Cancer',
+                        data: data.age_group.cancer,
+                        backgroundColor: '#764ba2',
+                        borderColor: '#6a3d91',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { stacked: false },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // Cancer Stage Distribution
+        const stageCtx = document.getElementById('cancerStageChart').getContext('2d');
+        new Chart(stageCtx, {
+            type: 'doughnut',
+            data: {
+                labels: data.cancer_stage.labels,
+                datasets: [{
+                    label: 'Count',
+                    data: data.cancer_stage.values,
+                    backgroundColor: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#6c5ce7'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: false }
+                }
+            }
+        });
+
+        // Treatment Type Distribution
+        const treatmentCtx = document.getElementById('treatmentChart').getContext('2d');
+        new Chart(treatmentCtx, {
+            type: 'bar',
+            data: {
+                labels: data.treatment.labels,
+                datasets: [
+                    {
+                        label: 'No Cancer',
+                        data: data.treatment.no_cancer,
+                        backgroundColor: '#667eea',
+                        borderColor: '#5568d3',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Cancer',
+                        data: data.treatment.cancer,
+                        backgroundColor: '#764ba2',
+                        borderColor: '#6a3d91',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { stacked: false },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // Treatment by Cancer Stage
+        const treatmentStageCtx = document.getElementById('treatmentStageChart').getContext('2d');
+        new Chart(treatmentStageCtx, {
+            type: 'bar',
+            data: {
+                labels: data.treatment_stage.stages,
+                datasets: data.treatment_stage.treatments.map((treatment, idx) => ({
+                    label: treatment.name,
+                    data: treatment.values,
+                    backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b'][idx],
+                    borderColor: ['#5568d3', '#6a3d91', '#e084f0', '#3d9ef5', '#3ad66f'][idx],
+                    borderWidth: 2
+                }))
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { stacked: false },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // Yearly Diagnosis
+        const yearlyCtx = document.getElementById('yearlyDiagnosisChart').getContext('2d');
+        new Chart(yearlyCtx, {
+            type: 'line',
+            data: {
+                labels: data.yearly.labels,
+                datasets: [
+                    {
+                        label: 'No Cancer',
+                        data: data.yearly.no_cancer,
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Cancer',
+                        data: data.yearly.cancer,
+                        borderColor: '#764ba2',
+                        backgroundColor: 'rgba(118, 75, 162, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // Country Chart (Top 10)
+        const countryCtx = document.getElementById('countryChart').getContext('2d');
+        new Chart(countryCtx, {
+            type: 'bar',
+            data: {
+                labels: data.country.labels,
+                datasets: [
+                    {
+                        label: 'No Cancer',
+                        data: data.country.no_cancer,
+                        backgroundColor: '#667eea',
+                        borderColor: '#5568d3',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Cancer',
+                        data: data.country.cancer,
+                        backgroundColor: '#764ba2',
+                        borderColor: '#6a3d91',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { stacked: false },
+                    y: { beginAtZero: true }
+                },
+                indexAxis: 'y'
+            }
+        });
+
+        // Tumor Size by Cancer Stage (Box plot simulation with bar chart)
+        const tumorSizeCtx = document.getElementById('tumorSizeChart').getContext('2d');
+        new Chart(tumorSizeCtx, {
+            type: 'bar',
+            data: {
+                labels: data.tumor_size.labels,
+                datasets: [{
+                    label: 'Average Tumor Size (cm)',
+                    data: data.tumor_size.values,
+                    backgroundColor: '#ff6b6b',
+                    borderColor: '#ee5a6f',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Tumor Size (cm)' } }
+                }
+            }
+        });
+
+        // Cost vs Economic Burden (Scatter plot)
+        const costBurdenCtx = document.getElementById('costBurdenChart').getContext('2d');
+        new Chart(costBurdenCtx, {
+            type: 'scatter',
+            data: {
+                datasets: [
+                    {
+                        label: 'Cancer Cases',
+                        data: data.cost_burden.cancer,
+                        backgroundColor: 'rgba(118, 75, 162, 0.6)',
+                        borderColor: '#764ba2',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'No Cancer',
+                        data: data.cost_burden.no_cancer,
+                        backgroundColor: 'rgba(102, 126, 234, 0.6)',
+                        borderColor: '#667eea',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Cost of Treatment (USD)' } },
+                    y: { title: { display: true, text: 'Economic Burden (Lost Workdays)' } }
+                }
+            }
+        });
+
+    } catch (error) {
+        console.error('Error loading chart data:', error);
+        document.querySelectorAll('.chart-container').forEach(container => {
+            if (container.querySelector('canvas')) {
+                container.innerHTML = '<p style="color: red; padding: 2rem; text-align: center;">Error loading chart data. Please try again later.</p>';
+            }
+        });
+    }
+}
+
+// Resize charts on window resize
+let resizeTimer;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        // Chart.js automatically handles resize, but we can force update if needed
+        Chart.helpers.each(Chart.instances, function(instance) {
+            instance.resize();
+        });
+    }, 250);
+});
+
+// Load data when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure containers are ready
+    setTimeout(function() {
+        loadChartData();
+    }, 100);
+});
+</script>
+{% endblock %}
+
