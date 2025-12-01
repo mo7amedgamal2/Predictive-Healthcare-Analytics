@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Oral Cancer Prediction System{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">Oral Cancer Prediction System</h1>
+        <p class="hero-subtitle">Advanced Machine Learning Models for Early Detection and Treatment Planning</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('predict_page') }}" class="btn btn-primary">Start Predicting</a>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">View Dashboard</a>
+        </div>
+    </div>
+</div>
+
+<div class="features-section">
+    <div class="container">
+        <h2 class="section-title">Available Models</h2>
+        <div class="models-grid">
+            <div class="model-card">
+                <div class="model-icon">
+                    <i class="fas fa-diagnoses"></i>
+                </div>
+                <h3>Cancer Label Detection</h3>
+                <p>Binary classification model to detect the presence of oral cancer</p>
+                <div class="model-status">
+                    <span class="status-badge {{ 'status-healthy' if model_status.get('cancer_label') == 'HEALTHY' else 'status-offline' }}">
+                        {{ model_status.get('cancer_label', 'UNKNOWN') }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3>Treatment Cost Prediction</h3>
+                <p>Predict the estimated cost of treatment in USD</p>
+                <div class="model-status">
+                    <span class="status-badge {{ 'status-healthy' if model_status.get('cost') == 'HEALTHY' else 'status-offline' }}">
+                        {{ model_status.get('cost', 'UNKNOWN') }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Survival Rate Prediction</h3>
+                <p>Predict 5-year survival rate percentage</p>
+                <div class="model-status">
+                    <span class="status-badge {{ 'status-healthy' if model_status.get('survival_rate') == 'HEALTHY' else 'status-offline' }}">
+                        {{ model_status.get('survival_rate', 'UNKNOWN') }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-icon">
+                    <i class="fas fa-calendar-day"></i>
+                </div>
+                <h3>Length of Stay (LOS)</h3>
+                <p>Predict hospital length of stay in days</p>
+                <div class="model-status">
+                    <span class="status-badge {{ 'status-healthy' if model_status.get('los') == 'HEALTHY' else 'status-offline' }}">
+                        {{ model_status.get('los', 'UNKNOWN') }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Recovery Time Prediction</h3>
+                <p>Predict recovery time in days</p>
+                <div class="model-status">
+                    <span class="status-badge {{ 'status-healthy' if model_status.get('recovery') == 'HEALTHY' else 'status-offline' }}">
+                        {{ model_status.get('recovery', 'UNKNOWN') }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="info-section">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Private</h3>
+                <p>All predictions are processed securely with patient data privacy in mind</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast Predictions</h3>
+                <p>Get instant predictions using state-of-the-art ML models</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Accurate Results</h3>
+                <p>High-accuracy models trained on comprehensive datasets</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
