@@ -1,0 +1,407 @@
+2025-11-30 22:50:09,479 - __main__ - INFO - Initializing model loader...
+2025-11-30 22:50:13,194 - __main__ - INFO - Treatment Type encoder loaded successfully
+2025-11-30 22:50:13,210 - __main__ - INFO - Loaded feature order for cancer_label: 23 features
+2025-11-30 22:50:13,236 - __main__ - INFO - Loaded feature order for cost: 27 features
+2025-11-30 22:50:13,287 - __main__ - INFO - Loaded feature order for los: 27 features
+2025-11-30 22:50:13,291 - __main__ - INFO - Loaded feature order for recovery: 27 features
+2025-11-30 22:50:13,338 - __main__ - INFO - Loaded feature order for survival_rate: 16 features
+2025-11-30 22:50:13,340 - __main__ - INFO - Loading all models at startup...
+2025-11-30 22:50:13,342 - model_loader - INFO - ================================================================================
+2025-11-30 22:50:13,345 - model_loader - INFO - STARTING MODEL LOADING PROCESS
+2025-11-30 22:50:13,349 - model_loader - INFO - ================================================================================
+2025-11-30 22:50:13,351 - model_loader - INFO - MODEL_SCAN: Found 14 .pkl files: ['cancer_label_best_model1_logisticregression.pkl', 'cancer_label_feature_order.pkl', 'cancer_label_robust_scaler1.pkl', 'cost_feature_order.pkl', 'Final_Survival_Rate.pkl', 'los_feature_order.pkl', 'oral_cancer_cost_of_treatment_model.pkl', 'oral_cancer_los_model_integer.pkl', 'oral_cancer_recovery_model_integer.pkl', 'recovery_feature_order.pkl', 'survival_rate_feature_order.pkl', 'survival_rate_scaler.pkl', 'treatment_type_encoder.pkl', 'treatment_type_feature_mapping.pkl']
+2025-11-30 22:50:13,352 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-11-30 22:50:13,993 - model_loader - INFO - LOADED: cancer_label_best_model1_logisticregression.pkl from models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-11-30 22:50:13,994 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\cancer_label_robust_scaler1.pkl
+2025-11-30 22:50:14,002 - model_loader - INFO - LOADED: cancer_label_robust_scaler1.pkl from models\models pkl\cancer_label_robust_scaler1.pkl
+2025-11-30 22:50:14,002 - model_loader - INFO - SANITY_TEST: Starting for cancer_label
+2025-11-30 22:50:14,004 - model_loader - INFO - SANITY_TEST: cancer_label - Status: PASS, Runtime: 1.05ms
+2025-11-30 22:50:14,004 - model_loader - INFO - [OK] cancer_label: HEALTHY
+2025-11-30 22:50:14,004 - model_loader - DEBUG - Could not identify model type for models\models pkl\cancer_label_feature_order.pkl, skipping
+2025-11-30 22:50:14,005 - model_loader - DEBUG - Skipping scaler file: cancer_label_robust_scaler1.pkl
+2025-11-30 22:50:14,005 - model_loader - DEBUG - Could not identify model type for models\models pkl\cost_feature_order.pkl, skipping
+2025-11-30 22:50:14,005 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\Final_Survival_Rate.pkl
+2025-11-30 22:50:18,757 - tensorflow - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-11-30 22:50:20,332 - h5py._conv - DEBUG - Creating converter from 7 to 5
+2025-11-30 22:50:20,335 - h5py._conv - DEBUG - Creating converter from 5 to 7
+2025-11-30 22:50:20,335 - h5py._conv - DEBUG - Creating converter from 7 to 5
+2025-11-30 22:50:20,335 - h5py._conv - DEBUG - Creating converter from 5 to 7
+2025-11-30 22:50:22,514 - matplotlib - DEBUG - matplotlib data path: D:\Anaconda\Lib\site-packages\matplotlib\mpl-data
+2025-11-30 22:50:22,530 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Mohamed Gamal\.matplotlib
+2025-11-30 22:50:22,532 - matplotlib - DEBUG - interactive is False
+2025-11-30 22:50:22,534 - matplotlib - DEBUG - platform is win32
+2025-11-30 22:50:22,601 - matplotlib - DEBUG - CACHEDIR=C:\Users\Mohamed Gamal\.matplotlib
+2025-11-30 22:50:22,610 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Mohamed Gamal\.matplotlib\fontlist-v390.json
+2025-11-30 22:50:24,233 - model_loader - INFO - LOADED: Final_Survival_Rate.pkl from models\models pkl\Final_Survival_Rate.pkl
+2025-11-30 22:50:24,235 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\survival_rate_scaler.pkl
+2025-11-30 22:50:24,246 - model_loader - INFO - LOADED: survival_rate_scaler.pkl from models\models pkl\survival_rate_scaler.pkl
+2025-11-30 22:50:24,248 - model_loader - DEBUG - Loaded survival_rate scaler from models\models pkl\survival_rate_scaler.pkl
+2025-11-30 22:50:24,251 - model_loader - INFO - SANITY_TEST: Starting for survival_rate
+2025-11-30 22:50:24,540 - model_loader - INFO - SANITY_TEST: survival_rate - Status: PASS, Runtime: 285.81ms
+2025-11-30 22:50:24,540 - model_loader - INFO - [OK] survival_rate: HEALTHY
+2025-11-30 22:50:24,541 - model_loader - DEBUG - Could not identify model type for models\models pkl\los_feature_order.pkl, skipping
+2025-11-30 22:50:24,541 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-11-30 22:50:25,164 - model_loader - INFO - LOADED: oral_cancer_cost_of_treatment_model.pkl from models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-11-30 22:50:25,164 - model_loader - INFO - SANITY_TEST: Starting for cost
+2025-11-30 22:50:25,213 - model_loader - INFO - SANITY_TEST: cost - Status: PASS, Runtime: 48.68ms
+2025-11-30 22:50:25,213 - model_loader - INFO - [OK] cost: HEALTHY
+2025-11-30 22:50:25,214 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_los_model_integer.pkl
+2025-11-30 22:50:26,331 - model_loader - INFO - LOADED: oral_cancer_los_model_integer.pkl from models\models pkl\oral_cancer_los_model_integer.pkl
+2025-11-30 22:50:26,332 - model_loader - INFO - SANITY_TEST: Starting for los
+2025-11-30 22:50:26,337 - model_loader - INFO - SANITY_TEST: los - Status: PASS, Runtime: 5.24ms
+2025-11-30 22:50:26,337 - model_loader - INFO - [OK] los: HEALTHY
+2025-11-30 22:50:26,337 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-11-30 22:50:27,012 - model_loader - INFO - LOADED: oral_cancer_recovery_model_integer.pkl from models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-11-30 22:50:27,013 - model_loader - INFO - SANITY_TEST: Starting for recovery
+2025-11-30 22:50:27,016 - model_loader - INFO - SANITY_TEST: recovery - Status: PASS, Runtime: 2.93ms
+2025-11-30 22:50:27,016 - model_loader - INFO - [OK] recovery: HEALTHY
+2025-11-30 22:50:27,016 - model_loader - DEBUG - Could not identify model type for models\models pkl\recovery_feature_order.pkl, skipping
+2025-11-30 22:50:27,016 - model_loader - DEBUG - Could not identify model type for models\models pkl\survival_rate_feature_order.pkl, skipping
+2025-11-30 22:50:27,017 - model_loader - DEBUG - Skipping scaler file: survival_rate_scaler.pkl
+2025-11-30 22:50:27,017 - model_loader - DEBUG - Could not identify model type for models\models pkl\treatment_type_encoder.pkl, skipping
+2025-11-30 22:50:27,017 - model_loader - DEBUG - Could not identify model type for models\models pkl\treatment_type_feature_mapping.pkl, skipping
+2025-11-30 22:50:27,017 - model_loader - INFO - ================================================================================
+2025-11-30 22:50:27,017 - model_loader - INFO - MODEL LOADING COMPLETE: 5 models processed
+2025-11-30 22:50:27,018 - model_loader - INFO - ================================================================================
+2025-11-30 22:50:27,018 - __main__ - INFO - Models loaded: {'cancer_label': 'HEALTHY', 'survival_rate': 'HEALTHY', 'cost': 'HEALTHY', 'los': 'HEALTHY', 'recovery': 'HEALTHY'}
+2025-11-30 22:50:27,018 - __main__ - INFO - Pre-loading dataset and charts...
+2025-11-30 22:50:27,022 - __main__ - INFO - Starting Flask application...
+2025-11-30 22:50:27,022 - __main__ - INFO - Loading dataset into cache...
+2025-11-30 22:50:27,022 - __main__ - INFO - Access the app at: http://0.0.0.0:5000
+2025-11-30 22:50:27,023 - dashboard_helper - INFO - Loading dataset from: data\oral_cancer_prediction_dataset.csv
+2025-11-30 22:50:27,051 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.143.100.74:5000
+2025-11-30 22:50:27,051 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-30 22:50:27,206 - dashboard_helper - INFO - Dataset loaded: (84922, 31)
+2025-11-30 22:50:27,206 - __main__ - INFO - Dataset cached: (84922, 31)
+2025-11-30 22:50:27,207 - __main__ - INFO - Generating dashboard charts into cache...
+2025-11-30 22:50:29,063 - __main__ - INFO - Dashboard charts cached
+2025-11-30 22:50:29,063 - __main__ - INFO - Cache initialization complete
+2025-11-30 22:52:38,575 - __main__ - INFO - Initializing model loader...
+2025-11-30 22:52:39,114 - __main__ - INFO - Treatment Type encoder loaded successfully
+2025-11-30 22:52:39,115 - __main__ - INFO - Loaded feature order for cancer_label: 23 features
+2025-11-30 22:52:39,115 - __main__ - INFO - Loaded feature order for cost: 27 features
+2025-11-30 22:52:39,116 - __main__ - INFO - Loaded feature order for los: 27 features
+2025-11-30 22:52:39,116 - __main__ - INFO - Loaded feature order for recovery: 27 features
+2025-11-30 22:52:39,117 - __main__ - INFO - Loaded feature order for survival_rate: 16 features
+2025-11-30 22:52:39,117 - __main__ - INFO - Loading all models at startup...
+2025-11-30 22:52:39,117 - model_loader - INFO - ================================================================================
+2025-11-30 22:52:39,117 - model_loader - INFO - STARTING MODEL LOADING PROCESS
+2025-11-30 22:52:39,117 - model_loader - INFO - ================================================================================
+2025-11-30 22:52:39,117 - model_loader - INFO - MODEL_SCAN: Found 14 .pkl files: ['cancer_label_best_model1_logisticregression.pkl', 'cancer_label_feature_order.pkl', 'cancer_label_robust_scaler1.pkl', 'cost_feature_order.pkl', 'Final_Survival_Rate.pkl', 'los_feature_order.pkl', 'oral_cancer_cost_of_treatment_model.pkl', 'oral_cancer_los_model_integer.pkl', 'oral_cancer_recovery_model_integer.pkl', 'recovery_feature_order.pkl', 'survival_rate_feature_order.pkl', 'survival_rate_scaler.pkl', 'treatment_type_encoder.pkl', 'treatment_type_feature_mapping.pkl']
+2025-11-30 22:52:39,118 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-11-30 22:52:39,209 - model_loader - INFO - LOADED: cancer_label_best_model1_logisticregression.pkl from models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-11-30 22:52:39,210 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\cancer_label_robust_scaler1.pkl
+2025-11-30 22:52:39,210 - model_loader - INFO - LOADED: cancer_label_robust_scaler1.pkl from models\models pkl\cancer_label_robust_scaler1.pkl
+2025-11-30 22:52:39,210 - model_loader - INFO - SANITY_TEST: Starting for cancer_label
+2025-11-30 22:52:39,212 - model_loader - INFO - SANITY_TEST: cancer_label - Status: PASS, Runtime: 1.04ms
+2025-11-30 22:52:39,212 - model_loader - INFO - [OK] cancer_label: HEALTHY
+2025-11-30 22:52:39,212 - model_loader - DEBUG - Could not identify model type for models\models pkl\cancer_label_feature_order.pkl, skipping
+2025-11-30 22:52:39,212 - model_loader - DEBUG - Skipping scaler file: cancer_label_robust_scaler1.pkl
+2025-11-30 22:52:39,212 - model_loader - DEBUG - Could not identify model type for models\models pkl\cost_feature_order.pkl, skipping
+2025-11-30 22:52:39,212 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\Final_Survival_Rate.pkl
+2025-11-30 22:52:40,108 - tensorflow - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-11-30 22:52:40,593 - h5py._conv - DEBUG - Creating converter from 7 to 5
+2025-11-30 22:52:40,594 - h5py._conv - DEBUG - Creating converter from 5 to 7
+2025-11-30 22:52:40,594 - h5py._conv - DEBUG - Creating converter from 7 to 5
+2025-11-30 22:52:40,594 - h5py._conv - DEBUG - Creating converter from 5 to 7
+2025-11-30 22:52:41,419 - matplotlib - DEBUG - matplotlib data path: D:\Anaconda\Lib\site-packages\matplotlib\mpl-data
+2025-11-30 22:52:41,424 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Mohamed Gamal\.matplotlib
+2025-11-30 22:52:41,425 - matplotlib - DEBUG - interactive is False
+2025-11-30 22:52:41,425 - matplotlib - DEBUG - platform is win32
+2025-11-30 22:52:41,475 - matplotlib - DEBUG - CACHEDIR=C:\Users\Mohamed Gamal\.matplotlib
+2025-11-30 22:52:41,478 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Mohamed Gamal\.matplotlib\fontlist-v390.json
+2025-11-30 22:52:42,120 - model_loader - INFO - LOADED: Final_Survival_Rate.pkl from models\models pkl\Final_Survival_Rate.pkl
+2025-11-30 22:52:42,120 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\survival_rate_scaler.pkl
+2025-11-30 22:52:42,121 - model_loader - INFO - LOADED: survival_rate_scaler.pkl from models\models pkl\survival_rate_scaler.pkl
+2025-11-30 22:52:42,121 - model_loader - DEBUG - Loaded survival_rate scaler from models\models pkl\survival_rate_scaler.pkl
+2025-11-30 22:52:42,121 - model_loader - INFO - SANITY_TEST: Starting for survival_rate
+2025-11-30 22:52:42,332 - model_loader - INFO - SANITY_TEST: survival_rate - Status: PASS, Runtime: 210.31ms
+2025-11-30 22:52:42,332 - model_loader - INFO - [OK] survival_rate: HEALTHY
+2025-11-30 22:52:42,332 - model_loader - DEBUG - Could not identify model type for models\models pkl\los_feature_order.pkl, skipping
+2025-11-30 22:52:42,332 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-11-30 22:52:42,450 - model_loader - INFO - LOADED: oral_cancer_cost_of_treatment_model.pkl from models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-11-30 22:52:42,450 - model_loader - INFO - SANITY_TEST: Starting for cost
+2025-11-30 22:52:42,499 - model_loader - INFO - SANITY_TEST: cost - Status: PASS, Runtime: 48.94ms
+2025-11-30 22:52:42,499 - model_loader - INFO - [OK] cost: HEALTHY
+2025-11-30 22:52:42,500 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_los_model_integer.pkl
+2025-11-30 22:52:42,623 - model_loader - INFO - LOADED: oral_cancer_los_model_integer.pkl from models\models pkl\oral_cancer_los_model_integer.pkl
+2025-11-30 22:52:42,623 - model_loader - INFO - SANITY_TEST: Starting for los
+2025-11-30 22:52:42,626 - model_loader - INFO - SANITY_TEST: los - Status: PASS, Runtime: 2.19ms
+2025-11-30 22:52:42,626 - model_loader - INFO - [OK] los: HEALTHY
+2025-11-30 22:52:42,626 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-11-30 22:52:42,651 - model_loader - INFO - LOADED: oral_cancer_recovery_model_integer.pkl from models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-11-30 22:52:42,651 - model_loader - INFO - SANITY_TEST: Starting for recovery
+2025-11-30 22:52:42,653 - model_loader - INFO - SANITY_TEST: recovery - Status: PASS, Runtime: 1.60ms
+2025-11-30 22:52:42,653 - model_loader - INFO - [OK] recovery: HEALTHY
+2025-11-30 22:52:42,653 - model_loader - DEBUG - Could not identify model type for models\models pkl\recovery_feature_order.pkl, skipping
+2025-11-30 22:52:42,653 - model_loader - DEBUG - Could not identify model type for models\models pkl\survival_rate_feature_order.pkl, skipping
+2025-11-30 22:52:42,654 - model_loader - DEBUG - Skipping scaler file: survival_rate_scaler.pkl
+2025-11-30 22:52:42,654 - model_loader - DEBUG - Could not identify model type for models\models pkl\treatment_type_encoder.pkl, skipping
+2025-11-30 22:52:42,654 - model_loader - DEBUG - Could not identify model type for models\models pkl\treatment_type_feature_mapping.pkl, skipping
+2025-11-30 22:52:42,654 - model_loader - INFO - ================================================================================
+2025-11-30 22:52:42,654 - model_loader - INFO - MODEL LOADING COMPLETE: 5 models processed
+2025-11-30 22:52:42,654 - model_loader - INFO - ================================================================================
+2025-11-30 22:52:42,654 - __main__ - INFO - Models loaded: {'cancer_label': 'HEALTHY', 'survival_rate': 'HEALTHY', 'cost': 'HEALTHY', 'los': 'HEALTHY', 'recovery': 'HEALTHY'}
+2025-11-30 22:52:42,655 - __main__ - INFO - Pre-loading dataset and charts...
+2025-11-30 22:52:42,659 - __main__ - INFO - Starting Flask application...
+2025-11-30 22:52:42,659 - __main__ - INFO - Loading dataset into cache...
+2025-11-30 22:52:42,659 - __main__ - INFO - Access the app at: http://0.0.0.0:5000
+2025-11-30 22:52:42,659 - dashboard_helper - INFO - Loading dataset from: data\oral_cancer_prediction_dataset.csv
+2025-11-30 22:52:42,677 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8090
+ * Running on http://10.143.100.74:8090
+2025-11-30 22:52:42,678 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-30 22:52:42,826 - dashboard_helper - INFO - Dataset loaded: (84922, 31)
+2025-11-30 22:52:42,826 - __main__ - INFO - Dataset cached: (84922, 31)
+2025-11-30 22:52:42,826 - __main__ - INFO - Generating dashboard charts into cache...
+2025-11-30 22:52:44,005 - __main__ - INFO - Dashboard charts cached
+2025-11-30 22:52:44,005 - __main__ - INFO - Cache initialization complete
+2025-12-01 02:25:23,271 - __main__ - INFO - Initializing model loader...
+2025-12-01 02:25:24,022 - __main__ - INFO - Treatment Type encoder loaded successfully
+2025-12-01 02:25:24,023 - __main__ - INFO - Loaded feature order for cancer_label: 23 features
+2025-12-01 02:25:24,024 - __main__ - INFO - Loaded feature order for cost: 27 features
+2025-12-01 02:25:24,027 - __main__ - INFO - Loaded feature order for los: 27 features
+2025-12-01 02:25:24,029 - __main__ - INFO - Loaded feature order for recovery: 27 features
+2025-12-01 02:25:24,032 - __main__ - INFO - Loaded feature order for survival_rate: 16 features
+2025-12-01 02:25:24,035 - __main__ - INFO - Loading all models at startup...
+2025-12-01 02:25:24,038 - model_loader - INFO - ================================================================================
+2025-12-01 02:25:24,040 - model_loader - INFO - STARTING MODEL LOADING PROCESS
+2025-12-01 02:25:24,042 - model_loader - INFO - ================================================================================
+2025-12-01 02:25:24,045 - model_loader - INFO - MODEL_SCAN: Found 14 .pkl files: ['cancer_label_best_model1_logisticregression.pkl', 'cancer_label_feature_order.pkl', 'cancer_label_robust_scaler1.pkl', 'cost_feature_order.pkl', 'Final_Survival_Rate.pkl', 'los_feature_order.pkl', 'oral_cancer_cost_of_treatment_model.pkl', 'oral_cancer_los_model_integer.pkl', 'oral_cancer_recovery_model_integer.pkl', 'recovery_feature_order.pkl', 'survival_rate_feature_order.pkl', 'survival_rate_scaler.pkl', 'treatment_type_encoder.pkl', 'treatment_type_feature_mapping.pkl']
+2025-12-01 02:25:24,047 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-12-01 02:25:24,173 - model_loader - INFO - LOADED: cancer_label_best_model1_logisticregression.pkl from models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-12-01 02:25:24,175 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\cancer_label_robust_scaler1.pkl
+2025-12-01 02:25:24,177 - model_loader - INFO - LOADED: cancer_label_robust_scaler1.pkl from models\models pkl\cancer_label_robust_scaler1.pkl
+2025-12-01 02:25:24,179 - model_loader - INFO - SANITY_TEST: Starting for cancer_label
+2025-12-01 02:25:24,182 - model_loader - INFO - SANITY_TEST: cancer_label - Status: PASS, Runtime: 0.99ms
+2025-12-01 02:25:24,184 - model_loader - INFO - [OK] cancer_label: HEALTHY
+2025-12-01 02:25:24,186 - model_loader - DEBUG - Could not identify model type for models\models pkl\cancer_label_feature_order.pkl, skipping
+2025-12-01 02:25:24,188 - model_loader - DEBUG - Skipping scaler file: cancer_label_robust_scaler1.pkl
+2025-12-01 02:25:24,190 - model_loader - DEBUG - Could not identify model type for models\models pkl\cost_feature_order.pkl, skipping
+2025-12-01 02:25:24,191 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\Final_Survival_Rate.pkl
+2025-12-01 02:25:25,425 - tensorflow - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-12-01 02:25:26,015 - h5py._conv - DEBUG - Creating converter from 7 to 5
+2025-12-01 02:25:26,015 - h5py._conv - DEBUG - Creating converter from 5 to 7
+2025-12-01 02:25:26,016 - h5py._conv - DEBUG - Creating converter from 7 to 5
+2025-12-01 02:25:26,016 - h5py._conv - DEBUG - Creating converter from 5 to 7
+2025-12-01 02:25:27,135 - matplotlib - DEBUG - matplotlib data path: D:\Anaconda\Lib\site-packages\matplotlib\mpl-data
+2025-12-01 02:25:27,139 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Mohamed Gamal\.matplotlib
+2025-12-01 02:25:27,140 - matplotlib - DEBUG - interactive is False
+2025-12-01 02:25:27,141 - matplotlib - DEBUG - platform is win32
+2025-12-01 02:25:27,196 - matplotlib - DEBUG - CACHEDIR=C:\Users\Mohamed Gamal\.matplotlib
+2025-12-01 02:25:27,199 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Mohamed Gamal\.matplotlib\fontlist-v390.json
+2025-12-01 02:25:28,075 - model_loader - INFO - LOADED: Final_Survival_Rate.pkl from models\models pkl\Final_Survival_Rate.pkl
+2025-12-01 02:25:28,075 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\survival_rate_scaler.pkl
+2025-12-01 02:25:28,077 - model_loader - INFO - LOADED: survival_rate_scaler.pkl from models\models pkl\survival_rate_scaler.pkl
+2025-12-01 02:25:28,077 - model_loader - DEBUG - Loaded survival_rate scaler from models\models pkl\survival_rate_scaler.pkl
+2025-12-01 02:25:28,077 - model_loader - INFO - SANITY_TEST: Starting for survival_rate
+2025-12-01 02:25:28,263 - model_loader - INFO - SANITY_TEST: survival_rate - Status: PASS, Runtime: 185.67ms
+2025-12-01 02:25:28,263 - model_loader - INFO - [OK] survival_rate: HEALTHY
+2025-12-01 02:25:28,264 - model_loader - DEBUG - Could not identify model type for models\models pkl\los_feature_order.pkl, skipping
+2025-12-01 02:25:28,264 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-12-01 02:25:28,409 - model_loader - INFO - LOADED: oral_cancer_cost_of_treatment_model.pkl from models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-12-01 02:25:28,409 - model_loader - INFO - SANITY_TEST: Starting for cost
+2025-12-01 02:25:28,459 - model_loader - INFO - SANITY_TEST: cost - Status: PASS, Runtime: 49.71ms
+2025-12-01 02:25:28,459 - model_loader - INFO - [OK] cost: HEALTHY
+2025-12-01 02:25:28,460 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_los_model_integer.pkl
+2025-12-01 02:25:28,634 - model_loader - INFO - LOADED: oral_cancer_los_model_integer.pkl from models\models pkl\oral_cancer_los_model_integer.pkl
+2025-12-01 02:25:28,634 - model_loader - INFO - SANITY_TEST: Starting for los
+2025-12-01 02:25:28,637 - model_loader - INFO - SANITY_TEST: los - Status: PASS, Runtime: 2.53ms
+2025-12-01 02:25:28,637 - model_loader - INFO - [OK] los: HEALTHY
+2025-12-01 02:25:28,637 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-12-01 02:25:28,671 - model_loader - INFO - LOADED: oral_cancer_recovery_model_integer.pkl from models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-12-01 02:25:28,671 - model_loader - INFO - SANITY_TEST: Starting for recovery
+2025-12-01 02:25:28,673 - model_loader - INFO - SANITY_TEST: recovery - Status: PASS, Runtime: 1.78ms
+2025-12-01 02:25:28,673 - model_loader - INFO - [OK] recovery: HEALTHY
+2025-12-01 02:25:28,674 - model_loader - DEBUG - Could not identify model type for models\models pkl\recovery_feature_order.pkl, skipping
+2025-12-01 02:25:28,674 - model_loader - DEBUG - Could not identify model type for models\models pkl\survival_rate_feature_order.pkl, skipping
+2025-12-01 02:25:28,674 - model_loader - DEBUG - Skipping scaler file: survival_rate_scaler.pkl
+2025-12-01 02:25:28,674 - model_loader - DEBUG - Could not identify model type for models\models pkl\treatment_type_encoder.pkl, skipping
+2025-12-01 02:25:28,674 - model_loader - DEBUG - Could not identify model type for models\models pkl\treatment_type_feature_mapping.pkl, skipping
+2025-12-01 02:25:28,674 - model_loader - INFO - ================================================================================
+2025-12-01 02:25:28,674 - model_loader - INFO - MODEL LOADING COMPLETE: 5 models processed
+2025-12-01 02:25:28,674 - model_loader - INFO - ================================================================================
+2025-12-01 02:25:28,675 - __main__ - INFO - Models loaded: {'cancer_label': 'HEALTHY', 'survival_rate': 'HEALTHY', 'cost': 'HEALTHY', 'los': 'HEALTHY', 'recovery': 'HEALTHY'}
+2025-12-01 02:25:28,675 - __main__ - INFO - Pre-loading dataset and charts...
+2025-12-01 02:25:28,679 - __main__ - INFO - Starting Flask application...
+2025-12-01 02:25:28,680 - __main__ - INFO - Loading dataset into cache...
+2025-12-01 02:25:28,680 - __main__ - INFO - Access the app at: http://0.0.0.0:5000
+2025-12-01 02:25:28,680 - dashboard_helper - INFO - Loading dataset from: data\oral_cancer_prediction_dataset.csv
+2025-12-01 02:25:28,699 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.143.100.74:5000
+2025-12-01 02:25:28,699 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-01 02:25:28,854 - dashboard_helper - INFO - Dataset loaded: (84922, 31)
+2025-12-01 02:25:28,854 - __main__ - INFO - Dataset cached: (84922, 31)
+2025-12-01 02:25:28,854 - __main__ - INFO - Generating dashboard charts into cache...
+2025-12-01 02:25:30,232 - __main__ - INFO - Dashboard charts cached
+2025-12-01 02:25:30,232 - __main__ - INFO - Cache initialization complete
+2025-12-01 02:27:45,732 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:27:45] "GET / HTTP/1.1" 200 -
+2025-12-01 02:27:45,933 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:27:45] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-12-01 02:27:45,943 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:27:45] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-12-01 02:27:46,839 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:27:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-12-01 02:28:22,864 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:22] "GET / HTTP/1.1" 200 -
+2025-12-01 02:28:22,888 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:28:22,893 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:22] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:28:23,688 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:23] "GET / HTTP/1.1" 200 -
+2025-12-01 02:28:23,714 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:28:23,715 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:23] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:28:27,893 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:27] "GET /predict HTTP/1.1" 200 -
+2025-12-01 02:28:27,927 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:28:27,929 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:28:27] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:29:19,771 - __main__ - INFO - Initializing model loader...
+2025-12-01 02:29:20,264 - __main__ - INFO - Treatment Type encoder loaded successfully
+2025-12-01 02:29:20,265 - __main__ - INFO - Loaded feature order for cancer_label: 23 features
+2025-12-01 02:29:20,267 - __main__ - INFO - Loaded feature order for cost: 27 features
+2025-12-01 02:29:20,268 - __main__ - INFO - Loaded feature order for los: 27 features
+2025-12-01 02:29:20,269 - __main__ - INFO - Loaded feature order for recovery: 27 features
+2025-12-01 02:29:20,270 - __main__ - INFO - Loaded feature order for survival_rate: 16 features
+2025-12-01 02:29:20,270 - __main__ - INFO - Loading all models at startup...
+2025-12-01 02:29:20,270 - model_loader - INFO - ================================================================================
+2025-12-01 02:29:20,270 - model_loader - INFO - STARTING MODEL LOADING PROCESS
+2025-12-01 02:29:20,270 - model_loader - INFO - ================================================================================
+2025-12-01 02:29:20,271 - model_loader - INFO - MODEL_SCAN: Found 14 .pkl files: ['cancer_label_best_model1_logisticregression.pkl', 'cancer_label_feature_order.pkl', 'cancer_label_robust_scaler1.pkl', 'cost_feature_order.pkl', 'Final_Survival_Rate.pkl', 'los_feature_order.pkl', 'oral_cancer_cost_of_treatment_model.pkl', 'oral_cancer_los_model_integer.pkl', 'oral_cancer_recovery_model_integer.pkl', 'recovery_feature_order.pkl', 'survival_rate_feature_order.pkl', 'survival_rate_scaler.pkl', 'treatment_type_encoder.pkl', 'treatment_type_feature_mapping.pkl']
+2025-12-01 02:29:20,271 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-12-01 02:29:20,360 - model_loader - INFO - LOADED: cancer_label_best_model1_logisticregression.pkl from models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-12-01 02:29:20,361 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\cancer_label_robust_scaler1.pkl
+2025-12-01 02:29:20,361 - model_loader - INFO - LOADED: cancer_label_robust_scaler1.pkl from models\models pkl\cancer_label_robust_scaler1.pkl
+2025-12-01 02:29:20,361 - model_loader - INFO - SANITY_TEST: Starting for cancer_label
+2025-12-01 02:29:20,362 - model_loader - INFO - SANITY_TEST: cancer_label - Status: PASS, Runtime: 0.90ms
+2025-12-01 02:29:20,363 - model_loader - INFO - [OK] cancer_label: HEALTHY
+2025-12-01 02:29:20,363 - model_loader - DEBUG - Could not identify model type for models\models pkl\cancer_label_feature_order.pkl, skipping
+2025-12-01 02:29:20,363 - model_loader - DEBUG - Skipping scaler file: cancer_label_robust_scaler1.pkl
+2025-12-01 02:29:20,363 - model_loader - DEBUG - Could not identify model type for models\models pkl\cost_feature_order.pkl, skipping
+2025-12-01 02:29:20,363 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\Final_Survival_Rate.pkl
+2025-12-01 02:29:21,243 - tensorflow - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2025-12-01 02:29:21,747 - h5py._conv - DEBUG - Creating converter from 7 to 5
+2025-12-01 02:29:21,748 - h5py._conv - DEBUG - Creating converter from 5 to 7
+2025-12-01 02:29:21,751 - h5py._conv - DEBUG - Creating converter from 7 to 5
+2025-12-01 02:29:21,753 - h5py._conv - DEBUG - Creating converter from 5 to 7
+2025-12-01 02:29:22,559 - matplotlib - DEBUG - matplotlib data path: D:\Anaconda\Lib\site-packages\matplotlib\mpl-data
+2025-12-01 02:29:22,564 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Mohamed Gamal\.matplotlib
+2025-12-01 02:29:22,565 - matplotlib - DEBUG - interactive is False
+2025-12-01 02:29:22,566 - matplotlib - DEBUG - platform is win32
+2025-12-01 02:29:22,615 - matplotlib - DEBUG - CACHEDIR=C:\Users\Mohamed Gamal\.matplotlib
+2025-12-01 02:29:22,618 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Mohamed Gamal\.matplotlib\fontlist-v390.json
+2025-12-01 02:29:23,242 - model_loader - INFO - LOADED: Final_Survival_Rate.pkl from models\models pkl\Final_Survival_Rate.pkl
+2025-12-01 02:29:23,243 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\survival_rate_scaler.pkl
+2025-12-01 02:29:23,243 - model_loader - INFO - LOADED: survival_rate_scaler.pkl from models\models pkl\survival_rate_scaler.pkl
+2025-12-01 02:29:23,244 - model_loader - DEBUG - Loaded survival_rate scaler from models\models pkl\survival_rate_scaler.pkl
+2025-12-01 02:29:23,244 - model_loader - INFO - SANITY_TEST: Starting for survival_rate
+2025-12-01 02:29:23,423 - model_loader - INFO - SANITY_TEST: survival_rate - Status: PASS, Runtime: 178.60ms
+2025-12-01 02:29:23,423 - model_loader - INFO - [OK] survival_rate: HEALTHY
+2025-12-01 02:29:23,423 - model_loader - DEBUG - Could not identify model type for models\models pkl\los_feature_order.pkl, skipping
+2025-12-01 02:29:23,423 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-12-01 02:29:23,538 - model_loader - INFO - LOADED: oral_cancer_cost_of_treatment_model.pkl from models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-12-01 02:29:23,539 - model_loader - INFO - SANITY_TEST: Starting for cost
+2025-12-01 02:29:23,589 - model_loader - INFO - SANITY_TEST: cost - Status: PASS, Runtime: 50.29ms
+2025-12-01 02:29:23,591 - model_loader - INFO - [OK] cost: HEALTHY
+2025-12-01 02:29:23,591 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_los_model_integer.pkl
+2025-12-01 02:29:23,716 - model_loader - INFO - LOADED: oral_cancer_los_model_integer.pkl from models\models pkl\oral_cancer_los_model_integer.pkl
+2025-12-01 02:29:23,716 - model_loader - INFO - SANITY_TEST: Starting for los
+2025-12-01 02:29:23,719 - model_loader - INFO - SANITY_TEST: los - Status: PASS, Runtime: 2.45ms
+2025-12-01 02:29:23,719 - model_loader - INFO - [OK] los: HEALTHY
+2025-12-01 02:29:23,719 - model_loader - INFO - ATTEMPT_LOAD: models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-12-01 02:29:23,744 - model_loader - INFO - LOADED: oral_cancer_recovery_model_integer.pkl from models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-12-01 02:29:23,744 - model_loader - INFO - SANITY_TEST: Starting for recovery
+2025-12-01 02:29:23,746 - model_loader - INFO - SANITY_TEST: recovery - Status: PASS, Runtime: 2.30ms
+2025-12-01 02:29:23,747 - model_loader - INFO - [OK] recovery: HEALTHY
+2025-12-01 02:29:23,747 - model_loader - DEBUG - Could not identify model type for models\models pkl\recovery_feature_order.pkl, skipping
+2025-12-01 02:29:23,747 - model_loader - DEBUG - Could not identify model type for models\models pkl\survival_rate_feature_order.pkl, skipping
+2025-12-01 02:29:23,747 - model_loader - DEBUG - Skipping scaler file: survival_rate_scaler.pkl
+2025-12-01 02:29:23,747 - model_loader - DEBUG - Could not identify model type for models\models pkl\treatment_type_encoder.pkl, skipping
+2025-12-01 02:29:23,747 - model_loader - DEBUG - Could not identify model type for models\models pkl\treatment_type_feature_mapping.pkl, skipping
+2025-12-01 02:29:23,747 - model_loader - INFO - ================================================================================
+2025-12-01 02:29:23,748 - model_loader - INFO - MODEL LOADING COMPLETE: 5 models processed
+2025-12-01 02:29:23,748 - model_loader - INFO - ================================================================================
+2025-12-01 02:29:23,748 - __main__ - INFO - Models loaded: {'cancer_label': 'HEALTHY', 'survival_rate': 'HEALTHY', 'cost': 'HEALTHY', 'los': 'HEALTHY', 'recovery': 'HEALTHY'}
+2025-12-01 02:29:23,748 - __main__ - INFO - Pre-loading dataset and charts...
+2025-12-01 02:29:23,752 - __main__ - INFO - Starting Flask application...
+2025-12-01 02:29:23,752 - __main__ - INFO - Loading dataset into cache...
+2025-12-01 02:29:23,753 - __main__ - INFO - Access the app at: http://0.0.0.0:5000
+2025-12-01 02:29:23,753 - dashboard_helper - INFO - Loading dataset from: data\oral_cancer_prediction_dataset.csv
+2025-12-01 02:29:23,768 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.143.100.74:5000
+2025-12-01 02:29:23,768 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-01 02:29:23,921 - dashboard_helper - INFO - Dataset loaded: (84922, 31)
+2025-12-01 02:29:23,921 - __main__ - INFO - Dataset cached: (84922, 31)
+2025-12-01 02:29:23,922 - __main__ - INFO - Generating dashboard charts into cache...
+2025-12-01 02:29:25,120 - __main__ - INFO - Dashboard charts cached
+2025-12-01 02:29:25,120 - __main__ - INFO - Cache initialization complete
+2025-12-01 02:29:33,932 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:33] "GET /predict HTTP/1.1" 200 -
+2025-12-01 02:29:34,114 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:34] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:29:34,117 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:29:35,282 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:35] "GET / HTTP/1.1" 200 -
+2025-12-01 02:29:35,311 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:29:35,313 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:35] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:29:59,214 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:59] "GET /predict HTTP/1.1" 200 -
+2025-12-01 02:29:59,244 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:29:59,245 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:29:59] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:30:01,595 - __main__ - INFO - LOS Prediction: {'prediction': 6, 'prediction_days': '6 days', 'unit': 'days'}
+2025-12-01 02:30:01,596 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:01] "POST /api/predict/los HTTP/1.1" 200 -
+2025-12-01 02:30:05,093 - __main__ - INFO - LOS Prediction: {'prediction': 0, 'prediction_days': '0 days', 'unit': 'days'}
+2025-12-01 02:30:05,093 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:05] "POST /api/predict/los HTTP/1.1" 200 -
+2025-12-01 02:30:11,432 - __main__ - INFO - LOS Prediction: {'prediction': 0, 'prediction_days': '0 days', 'unit': 'days'}
+2025-12-01 02:30:11,432 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:11] "POST /api/predict/los HTTP/1.1" 200 -
+2025-12-01 02:30:19,829 - __main__ - INFO - LOS Prediction: {'prediction': 0, 'prediction_days': '0 days', 'unit': 'days'}
+2025-12-01 02:30:19,830 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:19] "POST /api/predict/los HTTP/1.1" 200 -
+2025-12-01 02:30:31,337 - __main__ - INFO - LOS Prediction: {'prediction': 4, 'prediction_days': '4 days', 'unit': 'days'}
+2025-12-01 02:30:31,337 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:31] "POST /api/predict/los HTTP/1.1" 200 -
+2025-12-01 02:30:36,082 - __main__ - INFO - Recovery Prediction: {'prediction': 37, 'prediction_days': '37 days', 'unit': 'days'}
+2025-12-01 02:30:36,083 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:36] "POST /api/predict/recovery HTTP/1.1" 200 -
+2025-12-01 02:30:42,099 - __main__ - INFO - Cancer Label Prediction: {'prediction': 0, 'prediction_label': 'No Cancer', 'confidence': 0.2045761220967551, 'probabilities': {'no_cancer': 0.7954238779032449, 'cancer': 0.2045761220967551}}
+2025-12-01 02:30:42,099 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:42] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:30:45,555 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998947048976303, 'probabilities': {'no_cancer': 0.00010529510236967354, 'cancer': 0.9998947048976303}}
+2025-12-01 02:30:45,556 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:45] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:30:48,082 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.999892057247647, 'probabilities': {'no_cancer': 0.00010794275235304074, 'cancer': 0.999892057247647}}
+2025-12-01 02:30:48,082 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:48] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:30:50,924 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998932464263903, 'probabilities': {'no_cancer': 0.00010675357360967475, 'cancer': 0.9998932464263903}}
+2025-12-01 02:30:50,925 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:50] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:30:55,088 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9993196013863584, 'probabilities': {'no_cancer': 0.000680398613641553, 'cancer': 0.9993196013863584}}
+2025-12-01 02:30:55,090 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:30:55] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:03,915 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9993196013863584, 'probabilities': {'no_cancer': 0.000680398613641553, 'cancer': 0.9993196013863584}}
+2025-12-01 02:31:03,915 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:03] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:07,035 - __main__ - INFO - Cancer Label Prediction: {'prediction': 0, 'prediction_label': 'No Cancer', 'confidence': 0.2045761220967551, 'probabilities': {'no_cancer': 0.7954238779032449, 'cancer': 0.2045761220967551}}
+2025-12-01 02:31:07,036 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:07] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:09,547 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998947048976303, 'probabilities': {'no_cancer': 0.00010529510236967354, 'cancer': 0.9998947048976303}}
+2025-12-01 02:31:09,548 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:09] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:16,780 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998947048976303, 'probabilities': {'no_cancer': 0.00010529510236967354, 'cancer': 0.9998947048976303}}
+2025-12-01 02:31:16,781 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:16] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:20,530 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998858365188341, 'probabilities': {'no_cancer': 0.00011416348116588537, 'cancer': 0.9998858365188341}}
+2025-12-01 02:31:20,530 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:20] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:23,867 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998884767901408, 'probabilities': {'no_cancer': 0.00011152320985918784, 'cancer': 0.9998884767901408}}
+2025-12-01 02:31:23,868 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:23] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:26,717 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998831337473734, 'probabilities': {'no_cancer': 0.00011686625262663508, 'cancer': 0.9998831337473734}}
+2025-12-01 02:31:26,718 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:26] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:33,586 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998838219778301, 'probabilities': {'no_cancer': 0.00011617802216989936, 'cancer': 0.9998838219778301}}
+2025-12-01 02:31:33,587 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:33] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:45,833 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9999025496416372, 'probabilities': {'no_cancer': 9.745035836283833e-05, 'cancer': 0.9999025496416372}}
+2025-12-01 02:31:45,833 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:45] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:50,434 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998956247491928, 'probabilities': {'no_cancer': 0.00010437525080719823, 'cancer': 0.9998956247491928}}
+2025-12-01 02:31:50,435 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:50] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:31:55,635 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998367807563774, 'probabilities': {'no_cancer': 0.0001632192436226143, 'cancer': 0.9998367807563774}}
+2025-12-01 02:31:55,636 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:31:55] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:32:02,451 - __main__ - INFO - Cancer Label Prediction: {'prediction': 1, 'prediction_label': 'Cancer Detected', 'confidence': 0.9998184197987134, 'probabilities': {'no_cancer': 0.0001815802012865575, 'cancer': 0.9998184197987134}}
+2025-12-01 02:32:02,452 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:02] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:32:07,393 - __main__ - INFO - Cancer Label Prediction: {'prediction': 0, 'prediction_label': 'No Cancer', 'confidence': 0.1297758786946472, 'probabilities': {'no_cancer': 0.8702241213053528, 'cancer': 0.1297758786946472}}
+2025-12-01 02:32:07,394 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:07] "POST /api/predict/cancer_label HTTP/1.1" 200 -
+2025-12-01 02:32:10,404 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:10] "GET /dashboard HTTP/1.1" 200 -
+2025-12-01 02:32:10,529 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:32:10,558 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:10] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:32:16,638 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:16] "GET /visualizations HTTP/1.1" 200 -
+2025-12-01 02:32:16,674 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:32:16,676 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:16] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:32:17,006 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:17] "GET /api/visualizations/data HTTP/1.1" 200 -
+2025-12-01 02:32:21,052 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:21] "GET /about HTTP/1.1" 200 -
+2025-12-01 02:32:21,090 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:32:21,092 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:21] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-12-01 02:32:23,303 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:23] "GET /contact HTTP/1.1" 200 -
+2025-12-01 02:32:23,337 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 02:32:23,339 - werkzeug - INFO - 127.0.0.1 - - [01/Dec/2025 02:32:23] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -

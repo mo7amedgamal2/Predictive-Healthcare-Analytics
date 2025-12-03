@@ -1,0 +1,82 @@
+2025-11-30 18:15:36,155 - INFO - Validating required files...
+2025-11-30 18:15:36,155 - INFO - Validating models...
+2025-11-30 18:15:36,155 - INFO - Found 14 model files
+2025-11-30 18:15:36,156 - INFO - Validating dataset...
+2025-11-30 18:15:36,156 - INFO - Copying required files...
+2025-11-30 18:15:36,158 - INFO - Copied: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\app.py -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\app.py
+2025-11-30 18:15:36,159 - INFO - Copied: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\requirements.txt -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\requirements.txt
+2025-11-30 18:15:36,160 - INFO - Copied: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\Procfile -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\Procfile
+2025-11-30 18:15:36,161 - INFO - Copied: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\model_loader.py -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\model_loader.py
+2025-11-30 18:15:36,162 - INFO - Copied: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\dashboard_helper.py -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\dashboard_helper.py
+2025-11-30 18:15:36,163 - INFO - Copied: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render.yaml -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\render.yaml
+2025-11-30 18:15:36,164 - INFO - Copied: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\runtime.txt -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\runtime.txt
+2025-11-30 18:15:36,164 - INFO - Copying directories...
+2025-11-30 18:15:36,168 - INFO - Copied directory: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\templates -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\templates
+2025-11-30 18:15:36,171 - INFO - Copied directory: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\static -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\static
+2025-11-30 18:15:36,184 - INFO - Copied directory: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\models\models pkl -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\models\models pkl
+2025-11-30 18:15:36,184 - INFO - Copying dataset...
+2025-11-30 18:15:36,188 - INFO - Copied: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\data\oral_cancer_prediction_dataset.csv -> D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\data\oral_cancer_prediction_dataset.csv
+2025-11-30 18:15:36,188 - INFO - Creating upload directories...
+2025-11-30 18:15:36,189 - INFO - Created upload directory: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\static\uploads\presentation
+2025-11-30 18:15:36,189 - INFO - Created .gitignore
+2025-11-30 18:15:36,191 - INFO - Created deployment checklist: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\DEPLOYMENT_CHECKLIST.txt
+
+======================================================================
+COPY OPERATION SUMMARY
+======================================================================
+
+Source: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final
+Target: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready
+Files copied: 8
+Directories copied: 3
+Items skipped: 0
+Warnings: 0
+Errors: 0
+
+2025-11-30 18:15:36,191 - INFO - 
+============================================================
+2025-11-30 18:15:36,192 - INFO - Copy operation completed!
+2025-11-30 18:15:36,192 - INFO - Files copied: 8
+2025-11-30 18:15:36,193 - INFO - Directories copied: 3
+2025-11-30 18:15:36,193 - INFO - Items skipped: 0
+2025-11-30 18:15:36,193 - INFO - Warnings: 0
+2025-11-30 18:15:36,193 - INFO - Errors: 0
+2025-11-30 18:15:36,193 - INFO - ============================================================
+2025-11-30 18:15:36,221 - DEBUG - Added to zip: .gitignore
+2025-11-30 18:15:36,259 - DEBUG - Added to zip: app.py
+2025-11-30 18:15:36,280 - DEBUG - Added to zip: copy_log.txt
+2025-11-30 18:15:36,316 - DEBUG - Added to zip: dashboard_helper.py
+2025-11-30 18:15:36,353 - DEBUG - Added to zip: DEPLOYMENT_CHECKLIST.txt
+2025-11-30 18:15:36,417 - DEBUG - Added to zip: model_loader.py
+2025-11-30 18:15:36,474 - DEBUG - Added to zip: Procfile
+2025-11-30 18:15:36,486 - DEBUG - Added to zip: render.yaml
+2025-11-30 18:15:36,500 - DEBUG - Added to zip: requirements.txt
+2025-11-30 18:15:36,502 - DEBUG - Added to zip: runtime.txt
+2025-11-30 18:15:36,900 - DEBUG - Added to zip: data\oral_cancer_prediction_dataset.csv
+2025-11-30 18:15:36,930 - DEBUG - Added to zip: models\models pkl\cancer_label_best_model1_logisticregression.pkl
+2025-11-30 18:15:36,934 - DEBUG - Added to zip: models\models pkl\cancer_label_feature_order.pkl
+2025-11-30 18:15:36,936 - DEBUG - Added to zip: models\models pkl\cancer_label_robust_scaler1.pkl
+2025-11-30 18:15:36,938 - DEBUG - Added to zip: models\models pkl\cost_feature_order.pkl
+2025-11-30 18:15:37,007 - DEBUG - Added to zip: models\models pkl\Final_Survival_Rate.pkl
+2025-11-30 18:15:37,069 - DEBUG - Added to zip: models\models pkl\los_feature_order.pkl
+2025-11-30 18:15:37,259 - DEBUG - Added to zip: models\models pkl\oral_cancer_cost_of_treatment_model.pkl
+2025-11-30 18:15:37,678 - DEBUG - Added to zip: models\models pkl\oral_cancer_los_model_integer.pkl
+2025-11-30 18:15:38,075 - DEBUG - Added to zip: models\models pkl\oral_cancer_recovery_model_integer.pkl
+2025-11-30 18:15:38,077 - DEBUG - Added to zip: models\models pkl\recovery_feature_order.pkl
+2025-11-30 18:15:38,078 - DEBUG - Added to zip: models\models pkl\survival_rate_feature_order.pkl
+2025-11-30 18:15:38,079 - DEBUG - Added to zip: models\models pkl\survival_rate_scaler.pkl
+2025-11-30 18:15:38,080 - DEBUG - Added to zip: models\models pkl\treatment_type_encoder.pkl
+2025-11-30 18:15:38,081 - DEBUG - Added to zip: models\models pkl\treatment_type_feature_mapping.pkl
+2025-11-30 18:15:38,109 - DEBUG - Added to zip: static\css\style.css
+2025-11-30 18:15:38,112 - DEBUG - Added to zip: static\js\main.js
+2025-11-30 18:15:38,115 - DEBUG - Added to zip: templates\about.html
+2025-11-30 18:15:38,119 - DEBUG - Added to zip: templates\base.html
+2025-11-30 18:15:38,401 - DEBUG - Added to zip: templates\contact.html
+2025-11-30 18:15:38,593 - DEBUG - Added to zip: templates\dashboard.html
+2025-11-30 18:15:38,595 - DEBUG - Added to zip: templates\index.html
+2025-11-30 18:15:38,807 - DEBUG - Added to zip: templates\predict.html
+2025-11-30 18:15:38,990 - DEBUG - Added to zip: templates\visualizations.html
+2025-11-30 18:15:38,992 - INFO - Created zip archive: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready_20251130_1815.zip (13.22 MB)
+2025-11-30 18:15:38,995 - INFO - Zip archive created: D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready_20251130_1815.zip
+2025-11-30 18:15:38,996 - INFO - Deployment copy operation completed successfully!
+2025-11-30 18:15:39,001 - INFO - Next steps: See D:\Training DEPI Data Sceince\DEPI graduation ptoject\Project\final\render-ready\DEPLOYMENT_CHECKLIST.txt

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}About - Oral Cancer Prediction System{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="page-title">About the System</h1>
+    <p class="page-subtitle">Comprehensive oral cancer prediction using advanced machine learning</p>
+
+    <div class="dashboard-container">
+        <h2>System Overview</h2>
+        <p>This web application provides a comprehensive set of machine learning models for oral cancer prediction, treatment cost estimation, survival rate prediction, and recovery time forecasting.</p>
+
+        <h3 style="margin-top: 2rem;">Available Models</h3>
+        <div class="info-grid" style="margin-top: 1rem;">
+            <div class="info-card">
+                <i class="fas fa-diagnoses"></i>
+                <h4>Cancer Label Detection</h4>
+                <p>Binary classification model using Logistic Regression to detect the presence of oral cancer based on patient features and symptoms.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-dollar-sign"></i>
+                <h4>Treatment Cost Prediction</h4>
+                <p>Random Forest Regressor model that estimates treatment costs in USD based on patient characteristics and treatment type.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-heartbeat"></i>
+                <h4>Survival Rate Prediction</h4>
+                <p>Deep Neural Network model that predicts 5-year survival rates as a percentage.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-calendar-day"></i>
+                <h4>Length of Stay Prediction</h4>
+                <p>Regression model that forecasts the duration of hospital stay in days.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h4>Recovery Time Prediction</h4>
+                <p>Regression model that predicts the recovery time in days post-treatment.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 2rem;">Features</h3>
+        <ul style="margin-top: 1rem; padding-left: 2rem; line-height: 2;">
+            <li>Multiple machine learning models in one integrated platform</li>
+            <li>Real-time predictions with instant results</li>
+            <li>Model health monitoring and status tracking</li>
+            <li>Automatic model validation and sanity testing</li>
+            <li>Professional and intuitive user interface</li>
+            <li>Robust error handling and logging</li>
+        </ul>
+
+        <h3 style="margin-top: 2rem;">Technology Stack</h3>
+        <div style="margin-top: 1rem;">
+            <p><strong>Backend:</strong> Flask (Python web framework)</p>
+            <p><strong>Machine Learning:</strong> scikit-learn, TensorFlow/Keras, XGBoost</p>
+            <p><strong>Data Processing:</strong> Pandas, NumPy</p>
+            <p><strong>Model Storage:</strong> Joblib/Pickle</p>
+            <p><strong>Frontend:</strong> HTML5, CSS3, JavaScript</p>
+        </div>
+
+        <h3 style="margin-top: 2rem;">Model Information</h3>
+        <div style="margin-top: 1rem; background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+            <p>All models were trained on comprehensive datasets and validated using appropriate metrics:</p>
+            <ul style="margin-top: 1rem; padding-left: 2rem;">
+                <li><strong>Classification Models:</strong> Accuracy, Precision, Recall, F1-Score, AUC</li>
+                <li><strong>Regression Models:</strong> MSE, RMSE, MAE, R² Score</li>
+            </ul>
+        </div>
+
+        <h3 style="margin-top: 2rem;">Disclaimer</h3>
+        <div style="margin-top: 1rem; background: #fff3cd; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #ffc107;">
+            <p><strong>Important:</strong> This system is for research and educational purposes. Predictions should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare professionals for medical decisions.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
